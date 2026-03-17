@@ -14,3 +14,4 @@ export const TaskStatusEnum = {
 
 export const AvailableTaskStatus = Object.values(TaskStatusEnum)
 
+export const DB_NAME = 'project-management'
