@@ -1,3 +1,4 @@
+import { errorHandler } from "./middlewares/error.middleware.js";
 import express from "express";
 import cors from "cors";
 
@@ -22,5 +23,9 @@ import UserRoute from './routes/user.routes.js'
 
 app.use("/api/v1/healthcheck", healthCheckRoute);
 app.use("/api/v1/users", UserRoute)
+
+
+// error handler
+app.use(errorHandler)
 
 export default app;
