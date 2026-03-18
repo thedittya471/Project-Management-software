@@ -42,27 +42,22 @@ const userSchema = new Schema(
         /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
         "Password must contain letters and numbers",
       ],
-      select: false,
     },
     refreshToken: {
       type: String,
       default: null,
-      select: false,
     },
     isEmailVerified: {
       type: Boolean,
-      default: false,
     },
     forgotPasswordToken: {
       type: String,
-      select: false,
     },
     forgotPasswordExpiry: {
       type: Date,
     },
     emailVerificationToken: {
       type: String,
-      select: false,
     },
     emailVerificationExpiry: {
       type: Date,
