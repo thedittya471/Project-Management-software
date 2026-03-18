@@ -43,4 +43,34 @@ const userRegisterValidator = () => {
   ];
 };
 
-export { userRegisterValidator };
+const userLoginValidator = () => {
+  return [
+    body("email")
+      .optional()
+      .trim()
+      .isEmail()
+      .withMessage("Email is invalid"),
+
+    body("username")
+      .optional()
+      .trim()
+      .isLowercase()
+      .withMessage("Username must be lowercase")
+      .isLength({ min: 3 })
+      .withMessage("Username must be at least 3 characters long"),
+
+    body("password")
+      .trim()
+      .notEmpty()
+      .withMessage("Password is required"),
+
+    body().custom((value, { req }) => {
+      if (!req.body.email && !req.body.username) {
+        throw new Error("Email or Username is required");
+      }
+      return true;
+    }),
+  ];
+};
+
+export { userRegisterValidator, userLoginValidator };
